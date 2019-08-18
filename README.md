@@ -1,4 +1,4 @@
-# Blogpost: First Kata: "Multiply"
+# First Kata: "Multiply"
 
 Okay as promised in my previous post additional Rust posts was possibly in the pipeline, I also mentioned [Codewars.com](https://www.codewars.com/) and the katas I use for practice.
 
