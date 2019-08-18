@@ -1,6 +1,6 @@
 # First Kata: "Multiply"
 
-Okay as promised in my previous post additional Rust posts was possibly in the pipeline, I also mentioned [Codewars.com](https://www.codewars.com/) and the katas I use for practice.
+Okay as promised in [my previous post](https://dev.to/jonasbn/blog-post-46gm) additional Rust posts was possibly in the pipeline, I also mentioned [Codewars.com](https://www.codewars.com/) and the katas I use for practice.
 
 If you are into [Codewars.com](https://www.codewars.com/) this post (and hopefully subsequent posts) will contain **spoilers** - now you have been warned!
 
@@ -12,7 +12,7 @@ First kata: "[multiply](https://www.codewars.com/kata/50654ddff44f800200000004)"
 
 The original code, looked as follows:
 
-```Rust
+```rust
 fn multiply(a:i32, b:i32) {
   a * b
 }
@@ -20,7 +20,7 @@ fn multiply(a:i32, b:i32) {
 
 Here follows my solution, the solution in itself is not particularly interesting, but I can reflect on some of the things I learned from my solution (and possibly the failures leading up to the working solution)and I can spice it up with my approach to solving katas.
 
-```Rust
+```rust
 fn main () {
     let c = multiply(8, 8);
     println!("{}", c);
@@ -51,7 +51,7 @@ Read up on [the anatomy of a Rust program](https://doc.rust-lang.org/stable/book
 
 Now we have an idea about what function looks like in **Rust**. As described in [the Rust cheatsheet](https://cheats.rs/):
 
-```Rust
+```rust
 fn f() {}
 ```
 
@@ -65,7 +65,7 @@ fn main() {
 
 Now lets skip the contents of the `main` function and look at the next function: `multiply`
 
-```Rust
+```rust
 fn multiply(a:i32, b:i32) -> i32 {
   a * b
 }
@@ -100,7 +100,7 @@ So `a * b` could be written `return a * b;`, but since I am focussed on learning
 
 Out complete implementation of "multiply" end looking as follows:
 
-```Rust
+```rust
 fn multiply(a:i32, b:i32) -> i32 {
   a * b
 }
@@ -108,7 +108,7 @@ fn multiply(a:i32, b:i32) -> i32 {
 
 When you work on katas on [Codewars.com](https://www.codewars.com/), most katas hold unit-tests for testing your solution. The original tests for this kata looks as follows.
 
-```Rust
+```rust
 #[test]
 fn returns_expected() {
   assert_eq!(multiply(3, 5), 15)
@@ -137,7 +137,7 @@ Since we are using `cargo` and we get the `main` _for free_ function we can also
 
 Lets first do it using the modified version of a "Hello World", changed to the also popular "greeting" example.
 
-```Rust
+```rust
 use std::env;
 
 fn main() {
@@ -158,7 +158,7 @@ Getting string parameters to your **Rust** command line application is pretty ba
 
 Now lets apply this to our _multiplier_:
 
-```Rust
+```rust
 use std::env;
 
 fn main() {
@@ -187,7 +187,7 @@ But lets get back to doing proper software development, since manual testing is 
 
 As shown earlier a test suite looks as follows:
 
-```Rust
+```rust
 #[test]
 fn returns_expected() {
   assert_eq!(multiply(3, 5), 15)
@@ -196,7 +196,7 @@ fn returns_expected() {
 
 We can easily extend this with some interesting scenarios and corner cases, because a single test should capture the essence of such a simple function:
 
-```Rust
+```rust
 #[test]
 fn returns_expected() {
   assert_eq!(multiply(3, 5), 15);
@@ -217,7 +217,7 @@ This mean that the product of our calculation can exceed our return value - mean
 
 The maximum value of an `i32` can be extracted from **Rust**
 
-```Rust
+```rust
 fn main() {
     println!("{}", i32::max_value());
 }
@@ -231,7 +231,7 @@ If we multiply `2147483647` with `2147483647` we get: `4.611686e+18` and the pro
 
 If you want to check it out, just add the following test to the test suite, sine multiplying our maximum with 2 exceeds the maximum of our return type.
 
-```Rust
+```rust
 assert_eq!(multiply(2147483647, 2), 4294967294);
 ```
 
